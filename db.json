@@ -19,13 +19,27 @@
       "title": "Fsc",
       "description": "FSC",
       "time": "afternoon",
-      "status": "not_started"
+      "status": "done"
     },
     {
       "id": "f45aa4f4-8cd5-4763-a044-aa21fc1e08e8",
       "title": "Trabalhar",
       "description": "Trabalhar",
       "time": "afternoon",
+      "status": "not_started"
+    },
+    {
+      "id": "e26a95ca-9e3e-48d2-8f03-a36ce989acfc",
+      "title": "Ler Livro",
+      "description": "Resenha",
+      "time": "morning",
+      "status": "not_started"
+    },
+    {
+      "id": "8d8b71df-cc62-4b7a-afe9-044fd84d9742",
+      "title": "Jogar",
+      "description": "Resenha",
+      "time": "evening",
       "status": "not_started"
     }
   ]
