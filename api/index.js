@@ -1,13 +1,15 @@
 const jsonServer = require("json-server");
-const path = require("path");
 
-const server = jsonServer.create();
-const router = jsonServer.router(path.join(__dirname, "../db.json"));
+const fs = require("fs")
+const path = require("path");
+const filePath = path.join("db.json")
+const data = fs.readFileSync(filePath, "utf-8")
+const db = JSON.parse(data)
+const router = jsonServer.router(db)
+
 const middlewares = jsonServer.defaults();
 
 server.use(middlewares);
-
-// Rewrite /api/* to /* for json-server routing
 server.use(
   jsonServer.rewriter({
     "/api/*": "/$1",
@@ -15,10 +17,8 @@ server.use(
 );
 
 server.use(router);
+server.listen(3000, () => {
+  console.log("JSON server running")
+})
 
-// Export as Vercel serverless function
-// Vercel will invoke this handler for each request
-// The json-server rewriter above handles /api/* -> /* transformation
-module.exports = (req, res) => {
-  return server(req, res);
-};
+module.exports = server
